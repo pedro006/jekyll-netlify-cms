@@ -1,4 +1,6 @@
---- layout: default ---
+---
+layout: default
+---
 
 <div class="home">
   {%- if page.title -%}
@@ -7,18 +9,10 @@
 
   {{ content }}
 
-  {%- for post in posts -%}
-    <li>
-      <span class="post-meta">{{ post.date | date: date_format }}</span>
-      <h3>
-        <a class="post-link" href="{{ post.url | relative_url }}">
-          {{ post.title | escape }}
-        </a>
-      </h3>
-      {%- if site.show_excerpts -%}
-        {{ post.excerpt }}
-      {%- endif -%}
-    </li>
-  {%- endfor -%}
+  {% for post in posts %}
+    <h1>{{ post.title }}</h1>
+  {% else %}
+    <h1>Empty</h1>
+  {% endfor %}
 
 </div>
